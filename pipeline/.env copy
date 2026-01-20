@@ -1,0 +1,15 @@
+# Database connection
+DATABASE_URL=postgresql://postgres:postgres@localhost:5433/ny_taxi
+
+PG_USER=postgres
+PG_PASSWORD=postgres
+PG_HOST=localhost
+PG_PORT=5433
+PG_DB=ny_taxi
+
+# Data source
+DATA_URL=https://raw.githubusercontent.com/patrickDev/docker-workshop-Module1/refs/heads/main/pipeline/assests/taxi_zone_lookup.csv
+
+# Ingestion settings
+CHUNKSIZE=100000
+TARGET_TABLE=taxi_zone_lookup

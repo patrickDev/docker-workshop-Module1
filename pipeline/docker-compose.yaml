@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: ny_taxi
     ports:
-      - "5433:5432"
+      - "5433:5432"   # Host port 5433 → container port 5432
     volumes:
       - vol-pgdata:/var/lib/postgresql/data
     networks:
@@ -26,23 +26,9 @@ services:
     networks:
       - pg-network
 
-  ingest:
-    build: ./ingest
-    container_name: ingest
-    env_file:
-      - .env
-    depends_on:
-      - db
-    restart: "no"
-    networks:
-      - pg-network
-
 volumes:
   vol-pgdata:
-    name: vol-pgdata
   vol-pgadmin_data:
-    name: vol-pgadmin_data
 
 networks:
   pg-network:
-    driver: bridge
